@@ -10,6 +10,8 @@ library(scales)
 library(phangorn)
 library(ggpubr)
 
+#### Figure 4 ####
+
 subsampled.tree <- read.newick('core_genome_subsmp.aln.treefile')
 subsampled.lineage <- read.csv('lineage_information.csv')
 subsampled.lineage$Lineage <- as.factor(subsampled.lineage$Lineage)
@@ -65,7 +67,9 @@ sum(recomb100$Count[recomb100$Lineage == 2], na.rm = TRUE)
 sum(recomb100$Count[recomb100$Lineage == 1], na.rm = TRUE)
 write.csv(recomb100, file = 'recomb100.csv')
 
-#######Pearson Correlation Coefficient######
+#### Supplementary Figure S4 ####
+
+# Pearson Correlation Coefficient
 
 contigs.recomb <- read.csv("recomb_contigs.csv")
 
@@ -101,7 +105,9 @@ SupFig4 <- ggscatter(contigs.recomb, x = "number_of_contigs", y = "recombination
 
 ggsave("SuppFig4.pdf", plot = SupFig4)
 
-#####mmpL4 recombination#####
+#### Supplementary Figure S5 ####
+
+# mmpL4 recombination
 mmpl4.tree <- read.newick("output/rnd.fasta.treefile")
 big.tree <- read.newick('../../pangenome-20241020/panaroo-tree/core-genome.treefile')
 mmpl4.recomb <- read.csv("output/recombinations_recent1.txt")
