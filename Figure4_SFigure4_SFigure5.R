@@ -108,7 +108,7 @@ ggsave("SuppFig4.pdf", plot = SupFig4)
 #### Supplementary Figure S5 ####
 
 # mmpL4 recombination
-mmpl4.tree <- read.newick("output/rnd.fasta.treefile")
+
 big.tree <- read.newick('../../pangenome-20241020/panaroo-tree/core-genome.treefile')
 mmpl4.recomb <- read.csv("output/recombinations_recent1.txt")
 mmpl4.lin <- read.csv("../../pangenome-20241020/panaroo-tree/figtreeannot1.tsv.csv")
