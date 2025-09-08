@@ -11,7 +11,9 @@ gff_pig <- read.gff("/home/idowu/R/x86_64-pc-linux-gnu-library/4.2/RCandy/extdat
 gff_env <- read.gff("/home/idowu/R/x86_64-pc-linux-gnu-library/4.2/RCandy/extdata/mav_env.recombination_predictions.gff")
 gff_map <- read.gff("/home/idowu/Documents/guthrielab/MAP/map.recombination_predictions.gff")
 
-####All Isolates####
+#### Figure 5 ####
+
+# All Isolates
 
 # Extract only CDS features
 cds_data <- gff_data[gff_data$type == "CDS", ]
@@ -65,7 +67,7 @@ a <- ggplot(recomb_density, aes(x = position, y = density)) +
         axis.title.y = element_text(size = 14),
         plot.margin = margin(t=20, b=20, l=20, r=20, unit = "pt")) + ylim(0,250)
 
-##Human Isolates##
+# Human Isolates
 
 # Extract only CDS features
 cds_human <- gff_human[gff_human$type == "CDS", ]
@@ -100,7 +102,7 @@ b <- ggplot(recomb_density_human, aes(x = position, y = density)) +
         axis.title.y = element_text(size = 14),
         plot.margin = margin(t=20, b=20, l=20, r=20, unit = "pt")) + ylim(0,250)
 
-##Pig Isolates##
+# Pig Isolates
 
 # Extract only CDS features
 cds_pig <- gff_pig[gff_pig$type == "CDS", ]
@@ -174,9 +176,9 @@ final.plot <- cowplot::plot_grid(a,b,c,d, nrow=2, ncol = 2)
 ggsave("/home/idowu/Documents/guthrielab/m-avium/fastq/mav-snp-density-hotspots-kb1.pdf", width = 10, height = 8)
 
 
+#### Supplementary Figure 3 ####
 
-
-##MAP Isolates##
+# MAP Isolates
 
 # Extract only CDS features
 gff_map <- gff_map[gff_map$type == "CDS", ]
@@ -222,12 +224,14 @@ summary(mah.map$SNP_density[mah.map$Subsp == "MAH"])
 summary(mah.map$SNP_density[mah.map$Subsp == "MAP"])
 
 
-####Lineage Recombination####
+#### Figure 3 ####
+
+# Lineage Recombination
 
 setwd("/Users/idolawoye/Downloads/3_projects/avium/lineage_recomb/")
 library(ape)
 
-##lineage1##
+# lineage1
 lin1 <- read.table("lin_1.recombination_predictions.gff", sep = "\t", header = F,
                                  comment.char = "#", stringsAsFactors = FALSE)
 colnames(lin1) <- c("seqname", "source", "feature", "start", "end", "score", "strand", "frame", "attributes")
@@ -244,7 +248,7 @@ lin1 <- lin1 %>%
 
 lin1$lineage <- "lineage_1"
 
-##lineage2##
+# lineage2
 lin2 <- read.table("lin_2.recombination_predictions.gff", sep = "\t", header = F,
                    comment.char = "#", stringsAsFactors = FALSE)
 colnames(lin2) <- c("seqname", "source", "feature", "start", "end", "score", "strand", "frame", "attributes")
@@ -276,7 +280,7 @@ lin3 <- lin3 %>%
 
 lin3$lineage <- "lineage_3"
 
-##lineage4##
+# lineage4
 lin4 <- read.table("lin_4.recombination_predictions.gff", sep = "\t", header = F,
                    comment.char = "#", stringsAsFactors = FALSE)
 colnames(lin4) <- c("seqname", "source", "feature", "start", "end", "score", "strand", "frame", "attributes")
@@ -308,7 +312,7 @@ lin5 <- lin5 %>%
 
 lin5$lineage <- "lineage_5"
 
-##lineage6##
+# lineage6
 lin6 <- read.table("lin_6.recombination_predictions.gff", sep = "\t", header = F,
                    comment.char = "#", stringsAsFactors = FALSE)
 colnames(lin6) <- c("seqname", "source", "feature", "start", "end", "score", "strand", "frame", "attributes")
@@ -324,7 +328,7 @@ lin6 <- lin6 %>%
 
 lin6$lineage <- "lineage_6"
 
-##lineage7##
+# lineage7
 lin7 <- read.table("lin_7.recombination_predictions.gff", sep = "\t", header = F,
                    comment.char = "#", stringsAsFactors = FALSE)
 colnames(lin7) <- c("seqname", "source", "feature", "start", "end", "score", "strand", "frame", "attributes")
@@ -356,7 +360,7 @@ lin8 <- lin8 %>%
 
 lin8$lineage <- "lineage_8"
 
-##lineage9##
+# lineage9
 lin9 <- read.table("lin_9.recombination_predictions.gff", sep = "\t", header = F,
                    comment.char = "#", stringsAsFactors = FALSE)
 colnames(lin9) <- c("seqname", "source", "feature", "start", "end", "score", "strand", "frame", "attributes")
@@ -372,7 +376,7 @@ lin9 <- lin9 %>%
 
 lin9$lineage <- "lineage_9"
 
-##lineage10##
+# lineage10
 lin10 <- read.table("lin_10.recombination_predictions.gff", sep = "\t", header = F,
                    comment.char = "#", stringsAsFactors = FALSE)
 colnames(lin10) <- c("seqname", "source", "feature", "start", "end", "score", "strand", "frame", "attributes")
