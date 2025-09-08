@@ -11,6 +11,7 @@ library(reshape2)
 library(dplyr)
 
 # Load tree and metadata files
+#### Figure 1 ####
 pan.mavium.tree <- read.newick("~/Documents/guthrielab/m-avium/pangenome-20241020/panaroo-tree/core-genome.treefile")
 metadata <- read.csv("/home/idowu/Documents/guthrielab/m-avium/pangenome-20240426-161121/iqtree/annotate.csv", header = T, na.strings = "")
 metadata$Location <- as.factor(metadata$Location)
